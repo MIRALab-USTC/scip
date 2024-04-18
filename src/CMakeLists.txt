@@ -39,6 +39,8 @@ set(scipsources
     scip/branch_random.c
     scip/branch_relpscost.c
     scip/branch_vanillafullstrong.c
+    scip/branch_symb.c
+    # scip/symb_score.c
     scip/cons_abspower.c
     scip/compr_largestrepr.c
     scip/compr_weakcompr.c
@@ -454,6 +456,8 @@ set(scipheaders
     scip/branch_random.h
     scip/branch_relpscost.h
     scip/branch_vanillafullstrong.h
+    scip/branch_symb_local.h
+    scip/branch_symb.h
     scip/clock.h
     scip/compr.h
     scip/compr_largestrepr.h
@@ -936,7 +940,8 @@ target_link_libraries(libscip PRIVATE
     ${GMP_LIBRARIES}
     ${THREAD_LIBRARIES}
     ${NLPI_LIBRARIES}
-    ${SYM_LIBRARIES})
+    ${SYM_LIBRARIES}
+    dl)
 
 if(SHARED)
     target_link_libraries(libscip PRIVATE ${ZIMPL_PIC_LIBRARIES} ${LPS_PIC_LIBRARIES} ${SYM_PIC_LIBRARIES})
@@ -955,7 +960,7 @@ endif()
 target_compile_definitions(scip PRIVATE EXTERN=extern)
 
 target_link_libraries(scip ${ZLIB_LIBRARIES} ${Readline_LIBRARY} ${GMP_LIBRARIES}
-   ${ZIMPL_LIBRARIES} ${LPS_LIBRARIES} ${SYM_LIBRARIES} ${THREAD_LIBRARIES} ${NLPI_LIBRARIES})
+   ${ZIMPL_LIBRARIES} ${LPS_LIBRARIES} ${SYM_LIBRARIES} ${THREAD_LIBRARIES} ${NLPI_LIBRARIES} dl)
 
 add_dependencies(libscip scip_update_githash)
 add_dependencies(scip scip_update_githash)

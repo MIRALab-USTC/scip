@@ -43,6 +43,7 @@
 #include "scip/branch_random.h"
 #include "scip/branch_relpscost.h"
 #include "scip/branch_vanillafullstrong.h"
+#include "scip/branch_symb.h"
 #include "scip/compr_largestrepr.h"
 #include "scip/compr_weakcompr.h"
 #include "scip/cons_abspower.h"

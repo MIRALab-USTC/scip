@@ -1,0 +1,3 @@
+build/*
+.vscode/*
+src/scip/symb_score.c

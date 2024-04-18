@@ -124,6 +124,9 @@ SCIP_RETCODE SCIPincludeDefaultPlugins(
    SCIP_CALL( SCIPincludeBranchruleRandom(scip) );
    SCIP_CALL( SCIPincludeBranchruleRelpscost(scip) );
    SCIP_CALL( SCIPincludeBranchruleVanillafullstrong(scip) );
+   // SCIP_CALL( SCIPincludeBranchruleSymbDebug(scip) );
+   // SCIP_CALL( SCIPincludeBranchruleHybridSymbDebug(scip) );
+
    SCIP_CALL( SCIPincludeEventHdlrSolvingphase(scip) );
    SCIP_CALL( SCIPincludeComprLargestrepr(scip) );
    SCIP_CALL( SCIPincludeComprWeakcompr(scip) );

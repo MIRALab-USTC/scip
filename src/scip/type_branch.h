@@ -42,6 +42,16 @@ typedef struct SCIP_BranchCand SCIP_BRANCHCAND;   /**< branching candidate stora
 typedef struct SCIP_Branchrule SCIP_BRANCHRULE;   /**< branching method data structure */
 typedef struct SCIP_BranchruleData SCIP_BRANCHRULEDATA; /**< branching method specific data */
 
+typedef SCIP_RETCODE (*BranchExecLpFunc) (SCIP* scip, SCIP_BRANCHRULE* branchrule, SCIP_Bool allowaddcons, SCIP_RESULT* result);
+typedef SCIP_RETCODE (*BranchInitSolFunc) (SCIP* scip, SCIP_BRANCHRULE* branchrule);
+
+BranchExecLpFunc* SCIPbranchruleGetExeLpFunc(
+   SCIP_BRANCHRULE*      branchrule          /**< branching rule */
+   );
+
+BranchInitSolFunc* SCIPbranchruleGetInitSolFunc(
+   SCIP_BRANCHRULE*      branchrule          /**< branching rule */
+   );
 
 /** copy method for branchrule plugins (called when SCIP copies plugins)
  *

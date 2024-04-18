@@ -1854,6 +1854,16 @@ SCIP_BRANCHRULEDATA* SCIPbranchruleGetData(
    return branchrule->branchruledata;
 }
 
+BranchExecLpFunc* SCIPbranchruleGetExeLpFunc(
+   SCIP_BRANCHRULE*      branchrule          /**< branching rule */
+   )
+{return branchrule->branchexeclp;}
+
+BranchInitSolFunc* SCIPbranchruleGetInitSolFunc(
+   SCIP_BRANCHRULE*      branchrule          /**< branching rule */
+   )
+{return branchrule->branchinitsol;}
+
 /** sets user data of branching rule; user has to free old data in advance! */
 void SCIPbranchruleSetData(
    SCIP_BRANCHRULE*      branchrule,         /**< branching rule */
